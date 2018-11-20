@@ -1,0 +1,28 @@
+apiVersion: v1
+entries:
+  hlf-ca:
+  - apiVersion: v1
+    appVersion: 1.2.0
+    created: 2018-11-20T15:10:45.994768+08:00
+    description: Hyperledger Fabric Certificate Authority chart (these charts are
+      created by AID:Tech and are currently not directly associated with the Hyperledger
+      project)
+    digest: a5382639fdc6f41f8e1e5c88f6333518f57b89cca9b167a420fc5816c2ef274d
+    home: http://hyperledger-fabric-ca.readthedocs.io
+    icon: https://www.hyperledger.org/wp-content/uploads/2018/04/fabric-logo.png
+    keywords:
+    - blockchain
+    - hyperledger
+    - fabric
+    maintainers:
+    - email: sasha@aid.technology
+      name: alexvicegrab
+    - email: nicola@aid.technology
+      name: nicolapaoli
+    name: hlf-ca
+    sources:
+    - https://github.com/hyperledger/fabric-ca
+    urls:
+    - https://guanbo.github.com/hlcharts/hlf-ca-1.1.4.tgz
+    version: 1.1.4
+generated: 2018-11-20T15:10:45.990779+08:00
