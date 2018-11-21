@@ -88,6 +88,8 @@ The following table lists the configurable parameters of the Hyperledger Fabric 
 | `adminUsername`                    | Admin Username for CA                            | `admin`                                                    |
 | `adminPassword`                    | Admin Password                                   | Random 24 alphanumeric characters                          |
 | `caName`                           | Name of CA                                       | `org1-ca`                                                  |
+| `secrets.ca.cert`                  | Certificates of  CA, such as cryptogen from  crypto-config.yaml | ``                                                  |
+| `secrets.ca.key`                   | Key of CA, such as cryptogen from  crypto-config.yaml | ``                                                  |
 | `db.ssl`                           | SSL Authentication                               | `disable`                                                  |
 | `postgresql.enabled`               | Deploy a PostgreSQL container holding the CA data | `false`                                                   |
 | `mysql.enabled`                    | Deploy a MySQL container holding the CA data     | `false`                                                    |

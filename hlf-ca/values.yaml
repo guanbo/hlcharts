@@ -40,7 +40,7 @@ persistence:
   # existingClaim: ""
 
 ##################################
-## Further configuration options #
+## CA configuration options #
 ##################################
 ## CA Admin Username
 adminUsername: admin
@@ -48,6 +48,14 @@ adminUsername: admin
 # adminPassword:
 ## Name of CA, stored in FABRIC_CA_SERVER_CA_NAME (and the configMap "--config", if deploying a Root CA)
 caName: org1-ca
+
+secrets:
+  ca: {}
+    ## Certificate, saved under key 'cert.pem'
+    # cert: hlf--ca-cert
+    ## Key, saved under 'key.pem'
+    # key: hlf--ca-key
+
 
 ##
 ## Fabric CA Database

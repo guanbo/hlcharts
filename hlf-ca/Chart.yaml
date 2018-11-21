@@ -13,6 +13,8 @@ maintainers:
   name: alexvicegrab
 - email: nicola@aid.technology
   name: nicolapaoli
+- email: guanbo2002@gmail.com
+  name: guanbo
 name: hlf-ca
 sources:
 - https://github.com/hyperledger/fabric-ca
