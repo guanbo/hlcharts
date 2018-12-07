@@ -1,0 +1,18 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "hl-composer.fullname" . }}-cli
+  labels:
+{{ include "labels.standard" . | indent 4 }}
+data:
+  NODE_CONFIG: '{ "composer": { "wallet": { "type": "composer-wallet-redis", "options": {"host": "rest-redis-master"} } } }'
+  CONNECTION_FILE: /hl_config/hlc-connection/connection.json
+  ADMIN_CERT: /hl_config/admin/signcerts/admincert.pem
+  ADMIN_KEY: /hl_config/admin/keystore/adminkey.pem
+  CARDOUTPUT: /tmp/PeerAdmin@hlfv1.card
+  BNA_FILE: /hl_config/blockchain_network/qingniu-logistics.bna
+  BNA_NETWORK: "qingniu-logistics"
+  BNA_VERSION: "0.0.1"
+  ADMIN_CARD: "admin@qingniu-logistics"
+  RESTCARDOUTPUT: /tmp/networkadmin.card
