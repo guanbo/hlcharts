@@ -44,12 +44,11 @@ data:
     ca:
       # Name of this CA
       name:
-      {{- if (and .Values.secrets.ca.key .Values.secrets.ca.cert) }}
-      keyfile: /var/hyperledger/ca_config/signcerts/cert.pem
-      certfile: /var/hyperledger/ca_config/keystore/key.pem
-      {{- else }}
       # Key file (is only used to import a private key into BCCSP)
       keyfile:
+      {{- if .Values.secrets.ca.cert }}
+      certfile: /var/hyperledger/ca_config/ca/{{ .Values.caName }}-cert.pem
+      {{- else }}
       # Certificate file (default: ca-cert.pem)
       certfile: /var/hyperledger/fabric-ca/msp/certs/{{ include "hlf-ca.fullname" . }}-cert.pem
       {{- end }}
@@ -276,7 +275,11 @@ data:
             security: 256
             filekeystore:
                 # The directory used for the software file-based keystore
+                {{- if .Values.secrets.ca.cert }}
+                keystore: /var/hyperledger/ca_config/ca/
+                {{- else}}
                 keystore: msp/keystore
+                {{- end}}
     #############################################################################
     # Multi CA section (unused in a K8S deployment)
     #############################################################################

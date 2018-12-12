@@ -3,11 +3,11 @@ entries:
   hlf-ca:
   - apiVersion: v1
     appVersion: 1.2.0
-    created: 2018-12-07T14:05:09.788162+08:00
+    created: 2018-12-12T18:08:34.345646+08:00
     description: Hyperledger Fabric Certificate Authority chart (these charts are
       created by AID:Tech and are currently not directly associated with the Hyperledger
       project)
-    digest: 898716b8bf60b5c79f3db1a327d3033d4aab66b49d52e87e8dfceeb78b2909d1
+    digest: 2e6131b73649356d7ab1e743d08bde90fdc05bd61f408c89aad4c27a56cb3a7f
     home: http://hyperledger-fabric-ca.readthedocs.io
     icon: https://www.hyperledger.org/wp-content/uploads/2018/04/fabric-logo.png
     keywords:
@@ -25,12 +25,12 @@ entries:
     sources:
     - https://github.com/hyperledger/fabric-ca
     urls:
-    - https://guanbo.github.io/hlcharts/hlf-ca-1.1.4.tgz
-    version: 1.1.4
+    - https://guanbo.github.io/hlcharts/hlf-ca-1.1.5.tgz
+    version: 1.1.5
   hlf-peer:
   - apiVersion: v1
     appVersion: 1.2.0
-    created: 2018-12-07T14:05:09.790003+08:00
+    created: 2018-12-12T18:08:34.347061+08:00
     description: Hyperledger Fabric Peer chart (these charts are created by AID:Tech
       and are currently not directly associated with the Hyperledger project)
     digest: 31f8267c9eba017e337ccdb6994bd6db86ba1f77e083b3f5e4553377923e344d
@@ -51,4 +51,4 @@ entries:
     urls:
     - https://guanbo.github.io/hlcharts/hlf-peer-1.2.1.tgz
     version: 1.2.1
-generated: 2018-12-07T14:05:09.781701+08:00
+generated: 2018-12-12T18:08:34.338949+08:00

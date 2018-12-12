@@ -22,7 +22,7 @@ data:
   CORE_LOGGING_CAUTHDSL: debug
   CORE_LOGGING_GOSSIP: debug
   CORE_LOGGING_LEDGER: debug
-  CORE_LOGGING_MSP: info
+  CORE_LOGGING_MSP: debug
   CORE_LOGGING_POLICIES: debug
   CORE_LOGGING_GRPC: debug
   CORE_PEER_TLS_ENABLED: {{ .Values.peer.tls.server.enabled | quote }}

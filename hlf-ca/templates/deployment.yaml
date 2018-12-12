@@ -36,11 +36,6 @@ spec:
           secret:
             secretName: {{ .Values.secrets.ca.cert }}
         {{- end }}
-        {{- if .Values.secrets.ca.key }}
-        - name: ca-keyfile
-          sercret:
-            secretName: {{ .Values.secrets.ca.key }}
-        {{- end }}
       initContainers:
         - name: wait-for-db
           image: jwilder/dockerize
@@ -160,11 +155,7 @@ spec:
               mountPath: /var/hyperledger/ca_config
             {{- if .Values.secrets.ca.cert }}
             - name: ca-certfile
-              mountPath: /var/hyperledger/ca_config/signcerts
-            {{- end }}
-            {{- if .Values.secrets.ca.key }}
-            - name: ca-keyfile
-              mountPath: /var/hyperledger/ca_config/keystore
+              mountPath: /var/hyperledger/ca_config/ca
             {{- end }}
             {{- if (and .Values.config.mountTLS .Values.ingress.tls) }}
             - name: tls-secret
