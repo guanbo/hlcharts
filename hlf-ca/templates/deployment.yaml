@@ -155,6 +155,7 @@ spec:
               mountPath: /var/hyperledger/ca_config
             {{- if .Values.secrets.ca.cert }}
             - name: ca-certfile
+              readOnly: true
               mountPath: /var/hyperledger/ca_config/ca
             {{- end }}
             {{- if (and .Values.config.mountTLS .Values.ingress.tls) }}
