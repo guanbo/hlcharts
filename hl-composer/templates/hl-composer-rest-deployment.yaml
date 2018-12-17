@@ -1,5 +1,5 @@
 ---
-{{- if .Values.rest.enabled -}}
+{{- if .Values.rest.enabled }}
 apiVersion: apps/v1beta2
 kind: Deployment
 metadata:
@@ -36,6 +36,8 @@ spec:
           envFrom:
             - secretRef:
                 name: {{ include "hl-composer.fullname" . }}-rest
+            - configMapRef:
+                name: {{ include "hl-composer.fullname" . }}-cli
           env:
             - name: COMPOSER_CARD
               value: {{ .Values.rest.config.composerRestServerCard }}

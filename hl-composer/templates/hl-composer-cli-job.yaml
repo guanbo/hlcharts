@@ -1,24 +1,13 @@
-{{- if .Values.pg.enabled -}}
 ---
-apiVersion: apps/v1beta2
-kind: Deployment
+apiVersion: batch/v1
+kind: Job
 metadata:
   name: {{ include "hl-composer.fullname" . }}-cli
   labels:
     name: {{ include "hl-composer.fullname" . }}-cli
 {{ include "labels.standard" . | indent 4 }}
 spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: {{ include "hl-composer.name" . }}
-      release: {{ .Release.Name }}
   template:
-    metadata:
-      name: {{ include "hl-composer.fullname" . }}-cli
-      labels:
-        name: {{ include "hl-composer.fullname" . }}-cli
-{{ include "labels.standard" . | indent 8 }}
     spec:
       volumes:
         - name: persistent-volume
@@ -55,8 +44,6 @@ spec:
           envFrom:
             - configMapRef:
                 name: {{ include "hl-composer.fullname" . }}-cli
-        # TODO: Add liveness and readiness probes
-        # Run infinitely
           command:
             - sh
             - -c
@@ -75,7 +62,6 @@ spec:
               composer card import --file $RESTCARDOUTPUT
               composer network ping -c $ADMIN_CARD
               composer card export -c $ADMIN_CARD -f $RESTCARDOUTPUT
-              tail -f /dev/null
           volumeMounts:
             - mountPath: /home/composer/.composer
               name: persistent-volume
@@ -95,18 +81,4 @@ spec:
             - mountPath: /hl_config/hlc-connection
               name: hlc-connection
             {{- end }}
-          resources:
-{{ toYaml .Values.cli.resources | indent 12 }}
-    {{- with .Values.cli.nodeSelector }}
-      nodeSelector:
-{{ toYaml . | indent 8 }}
-    {{- end }}
-    {{- with .Values.cli.affinity }}
-      affinity:
-{{ toYaml . | indent 8 }}
-    {{- end }}
-    {{- with .Values.cli.tolerations }}
-      tolerations:
-{{ toYaml . | indent 8 }}
-    {{- end }}
-{{- end }}
+      restartPolicy: Never
